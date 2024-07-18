@@ -167,7 +167,7 @@ with col5:
     st.plotly_chart(fig)
 
 # Calculate average spending per category per year in school
-df_avg = df.groupby('year_in_school').mean().reset_index()
+df_avg = df.groupby('year_in_school')[categories].mean().reset_index()
 df_avg = df_avg.melt(id_vars='year_in_school', var_name='category', value_name='average_spending')
 
 # Add this line to ensure unique combinations of year_in_school and category
